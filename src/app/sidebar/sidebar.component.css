@@ -1,0 +1,46 @@
+.side-menu {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .side-menu h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .side-menu nav ul {
+    list-style: none;
+    padding: 10px 0;
+  }
+  
+  .side-menu nav ul li {
+    margin: 10px 0;
+  }
+  
+  .side-menu nav ul li a {
+    color: #5932ea;
+    text-decoration: none;
+  }
+  
+  .pro-upgrade {
+    margin-top: 20px;
+    background-color: #e5d8ff;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .pro-upgrade button {
+    background-color: #5932ea;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  @media (min-width: 768px) {
+  
+    .side-menu {
+      width: 250px;
+      text-align: left;
+    }}
