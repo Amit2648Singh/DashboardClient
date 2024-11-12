@@ -1,6 +1,4 @@
-<div class="dashboard">
-    <app-sidebar></app-sidebar>
-    <app-dashboard></app-dashboard>
-    <router-outlet></router-outlet>
-  </div>
-  
+<app-sidebar (onToggleSideNav)="onToggleSideNav($event)" ></app-sidebar>
+  <app-body [collapsed]="isSideNavCollapsed"
+  [screenWidth] = "screenWidth"
+  ></app-body>
