@@ -1,7 +1,7 @@
 import { Component, Output,EventEmitter, OnInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { navbarData } from './nav-data';
-import { RouterLink,RouterLinkActive,RouterConfigOptions } from '@angular/router';
+import { RouterLink,RouterLinkActive,RouterConfigOptions, Router } from '@angular/router';
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 
 
@@ -40,7 +40,11 @@ export class SidebarComponent implements  OnInit {
   screenWidth = 0
   navData=navbarData ;
 
-  
+  constructor(private router: Router) {}
+
+  isActive(route: string): boolean {
+    return this.router.url === route;
+  }
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.screenWidth = window.innerWidth;

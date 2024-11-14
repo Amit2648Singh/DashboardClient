@@ -71,8 +71,7 @@
 }
 .sidenav-nav-item:hover span {
   width: 100%;
-  margin-bottom: 0.625rem;
-  color: #000;
+  color: #eee7e7;
 }
 .sidenav-nav-link {
   display: flex;
@@ -87,6 +86,10 @@
   margin: 0 0.5rem;
   text-align: center;
 }
+.sidenav-link-icon:hover
+{
+  filter: invert(100%) brightness(200%);
+}
 .sidenav-link-text {
   margin-left: 1.5rem;
 }
@@ -99,6 +102,15 @@
   }
   .active {
     background-color: #5932EA;
+    color: #fff;
+}
+.active-text
+{
+  color: #fff ;
+}
+.sidenav-link-icon
+{
+  width: 2rem;
 }
 .menu-collapse-icon,
 .sidenav-link-icon,
