@@ -18,7 +18,17 @@
                 'sidenav-link-text': !isActive(data.routeLink),
                 'active-text': isActive(data.routeLink)
               }" *ngIf="collapsed" >{{data.label}}</span>
+        
           </a>
+          <!-- <ul *ngIf="data.expanded" class="sidenav-submenu">
+            <li *ngFor="let child of data.children">
+              <a class="sidenav-nav-link" 
+                 [routerLink]="[child.routeLink]" 
+                 routerLinkActive="active">
+                <span>{{child.label}}</span>
+              </a>
+            </li>
+          </ul> -->
       </li>
   </ul>
 </div>

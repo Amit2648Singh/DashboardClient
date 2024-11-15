@@ -79,7 +79,11 @@
       </div>
     </div>
     <section class="customer-list">
-    <app-datatable></app-datatable>
+    <app-datatable
+     [customerData]="customers"
+     [additionalData]="additionalData"
+     [paginationData]="paginationData"
+      ></app-datatable>
     </section>
   </div>
   

@@ -31,3 +31,12 @@ body {
         padding: 1rem 1.5rem; 
     }
 }
+.page-item.active .page-link {
+    background: #5932EA;
+    border: 1px solid #5932EA;
+    color: #fff;
+  }
+  .page-item .page-link {
+    margin: 10px;
+    color: #000;
+  }

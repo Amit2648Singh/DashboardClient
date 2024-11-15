@@ -61,6 +61,9 @@ export class SidebarComponent implements  OnInit {
     this.onToggleSideNav.emit({collapsed:this.collapsed,screenWidth :this.screenWidth})
 
   }
+  toggleSubMenu(item: any) {
+    item.expanded = !item.expanded;
+  }
   closeSidenav():void {
       this.collapsed = false
       this.onToggleSideNav.emit({collapsed:this.collapsed,screenWidth :this.screenWidth})

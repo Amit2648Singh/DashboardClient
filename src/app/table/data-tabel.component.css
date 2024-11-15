@@ -1,111 +1,253 @@
- 
+/* Base Styles (Mobile First) */
+/* Customer List, Table, and Input Group Styles for Base */
+.customer-list {
+  margin-top: 20px;
+  width: 100%; /* Full width by default */
+  background-color: #fff;
+}
+
+.customer-list header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.coustomer-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sub-title h4 {
+  margin-bottom: 22px;
+}
+
+.sub-title p {
+  color: #16C098;
+  font-size: 14px;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: auto;
+}
+
+/* .table-row {
+  display: contents;
+} */
+
+.table-row.header {
+  /* font-weight: bold; */
+  /* background-color: #fafbff; */
+  font-size: 14px;
+}
+
+.table-row span {
+  padding: 10px;
+  /* border-bottom: 1px solid #e0e0e0; */
+}
+
+.status {
+  padding: 5px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.status.active {
+  background-color: #e0f7ec;
+  color: #16c098;
+}
+
+.status.inactive {
+  background-color: #ffdada;
+  color: #d0004a;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.pagination button {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.wrap_table_data {
+  background: #fff;
+  border-radius: 30px;
+  padding: 30px;
+  /* overflow-x: auto; */
+}
+
+.input-group.outline.mb-3 {
+  background: #F9FBFF;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #eee;
+}
+
+.input-group.outline.mb-3 input.form-control {
+  background: transparent;
+  border: 0;
+  font-size: 14px;
+}
+
+.dropdown_select .form-select {
+  font-size: 14px;
+  margin-bottom: 0 !important;
+  border: 0;
+  background: transparent;
+}
+
+.dropdown_select label {
+  display: inline-block;
+  width: 100px;
+  margin: auto;
+}
+
+.wrap_label {
+  display: flex;
+  background: #F9FBFF;
+  box-shadow: 0px 0px 10px #eee;
+  padding-left: 12px;
+}
+
+/* For Small Screens (up to 600px) */
+@media (max-width: 600px) {
   .customer-list {
-    margin-top: 20px;
+    background-color: #d0004a;
+    width: 100px; /* Adjust width for narrow screens */
   }
-  
-  .customer-list header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-  }
- .coustomer-title{
-    display: flex;
-    justify-content: space-between;
- }
- .sub-title
- {
-    /* display: flex;
-    flex-direction: column; */
- }
+
   .table {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    grid-template-columns: repeat(4, 1fr);
   }
-  
+
   .table-row {
-    display: contents; /* This allows items to align within the grid without separate boxes */
+    width: 100%; /* Full-width for content */
   }
-  
+
   .table-row.header {
-    font-weight: bold;
-    background-color: #fafbff;
+    width: 100%;
   }
-  
-  .table-row span {
-    padding: 10px;
-    border-bottom: 1px solid #e0e0e0;
+
+  .sub-title p {
+    font-size: 12px; /* Smaller font for better fit */
   }
-  
-  .status {
-    padding: 5px;
-    text-align: center;
-    border-radius: 5px;
-  }
-  
-  .status.active {
-    background-color: #e0f7ec;
-    color: #16c098;
-  }
-  
-  .status.inactive {
-    background-color: #ffdada;
-    color: #d0004a;
-  }
-  
+
   .pagination {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    margin-top: 10px;
+    gap: 3px;
   }
-  
-  .pagination button {
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
-    padding: 5px 10px;
-    border-radius: 5px;
+}
+
+/* For Tablets (601px to 767px) */
+@media (min-width: 601px) and (max-width: 767px) {
+  .table {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .wrap_table_data {
-    background: #fff;
-    border-radius: 30px;
+    padding: 20px;
+  }
+
+  .input-group.outline.mb-3 {
+    font-size: 12px;
+  }
+}
+
+/* Medium Screen Styles (Small Laptops and Large Tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .customer-list {
+    width: auto; /* Normal width */
+  }
+
+  .table {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .wrap_table_data {
     padding: 30px;
+  }
 }
-.sub-title h4 {
-    margin-bottom: 22px;
+
+/* For Desktops (1024px and above) */
+@media (min-width: 1024px) {
+  .table {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .wrap_table_data {
+    padding: 40px;
+  }
+
+  .customer-list {
+    margin-top: 30px;
+  }
 }
-.sub-title p{
-    color: #16C098;
-    font-size: 14px;
+
+/* Extra Large Screens (1440px and above) */
+@media (min-width: 1440px) {
+  .table {
+    grid-template-columns: repeat(8, 1fr); /* Larger grid for wider screens */
+  }
+
+  .wrap_table_data {
+    padding: 50px;
+  }
 }
-.input-group.outline.mb-3 {
-    background: #F9FBFF;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px #eee;
+.wrap_label label {
+  color: #a7a7a7;
+  font-size: 13px;
 }
-.input-group.outline.mb-3 input.form-control {
-    background: transparent;
-    border: 0;
-    font-size: 14px;
+.table {
+  border: 0 !important;
+  text-align: left;
 }
-.dropdown_select .form-select {
-    font-size: 14px;
-    margin-bottom: 0 !important;
-    border: 0;
-    background: transparent;
+.table .table-row.header {
+  width: 100%;
+  color: #B5B7C0;
+  font-weight: 400;
 }
-.dropdown_select label {
-    display: inline-block;
-    width: 100px;
-    margin: auto;
+.status_btn .btn {
+  width: 100px;
 }
-.wrap_label {
-    display: flex;
-    background: #F9FBFF;
-    box-shadow: 0px 0px 10px #eee;
-    padding-left: 12px;
+
+.btn-active{
+  background: #a7ebdb;
+  color: #008767;
+  border: 1px solid #008767;
+}
+.btn-inactive {
+  background-color: #FFC5C5;
+  color: #DF0404;
+  border: 1px solid #DF0404;
+}
+.table_data table thead th {
+  padding: 12px 0px;
+  color: #afafaf;
+  font-weight: 400;
+}
+.table_data table tbody td {
+  padding: 10px 0px;
+}
+.table_data table thead tr {
+  border-bottom: 1px solid #ddd;
+}
+.table_data table tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+.table_data {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.paginator{
+  justify-content: end;
 }

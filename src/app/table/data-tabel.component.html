@@ -18,16 +18,22 @@
                   <img src="../../assets/search 1.png">
                 </button>
               </div>
-              <input type="text" class="form-control" placeholder="Search" aria-label="" aria-describedby="basic-addon1">
+              <input type="text"
+               class="form-control"
+                placeholder="Search"
+                 aria-label="" 
+                 aria-describedby="basic-addon1"
+                 (input)="onSearch($event)"
+                 >
             </div>
           </div>
           <div class="col-sm-6 dropdown_select">
             <div class="wrap_label">
               <label>Short by</label>
-              <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                <option selected disabled>select one</option>
-                <option value="1">Newest</option>
-                <option value="2">Oldest</option>
+              <select class="form-select form-select-lg mb-3" [(ngModel)]="paginationData.selectedSortValue" (ngModelChange)="onSort($event)" aria-label=".form-select-lg example">
+                <option selected disabled>Select one</option>
+                <option [ngValue]="'acc'">Newest</option>
+                <option [ngValue]="'desc'">Oldest</option>
               </select>
             </div>
            
@@ -38,32 +44,50 @@
    
     
     
-    <div class="table">
+    <div class="table_data">
       <div class="table-row header">
-        <span (click)="sortTable('name')">Customer Name</span>
-        <span (click)="sortTable('company')">Company</span>
-        <span>Phone Number</span>
-        <span>Email</span>
-        <span>Country</span>
-        <span>Status</span>
+
+       <table class="w-100">
+        <thead>
+          <tr>
+            <th (click)="sortTable('name')">Customer Name</th>
+            <th (click)="sortTable('company')">Company</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Country</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of filteredCustomers()">
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.company }}</td>
+            <td>{{ customer.phone }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.country }}</td>
+            <td>
+              <div class="status_btn">
+                <button class="btn"
+                [ngClass]="{
+                  'btn-active': customer.status.toLowerCase() === 'active',
+                  'btn-inactive': customer.status.toLowerCase() === 'inactive'
+                }">{{ customer.status }}</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+       </table>
       </div>
-      <div
-        *ngFor="let customer of filteredCustomers()"
-        class="table-row"
-      >
-        <span>{{ customer.name }}</span>
-        <span>{{ customer.company }}</span>
-        <span>{{ customer.phone }}</span>
-        <span>{{ customer.email }}</span>
-        <span>{{ customer.country }}</span>
-        <span class="status">{{ customer.status }}</span>
-      </div>
+      
     </div>
     
-    <div class="d-flex justify-content-between p-2">
+    <div class="d-flex paginator p-2">
       <ngb-pagination
-        [collectionSize]="collectionSize"
-        (pageChange)="refreshCountries()"
+        [collectionSize]="paginationData.collectionSize"
+        [(page)]="paginationData.page"
+        [pageSize]="paginationData.pageSize"
+        (pageChange)="onPageChange($event)"
       >
       </ngb-pagination>
     </div>
