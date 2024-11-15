@@ -1,42 +1,85 @@
-/* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    position: relative;
-    font-family: 'Roboto', sans-serif;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    border-radius: .5rem;
-    background-color: #fff;
-    margin: 1.25rem 0 1.25rem 0;
-    box-shadow: 0 .25rem .5rem #e6edef;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  margin: 1.25rem 0 1.25rem 0;
+  box-shadow: 0 0.25rem 0.5rem #e6edef;
 
-    .card-head {
-        padding: 1rem 1.5rem;
-        border-bottom: 1px solid #edf1f7;
-        font-size: 1rem;
-        font-weight: 600;
-    }
+  .card-head {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #edf1f7;
+    font-size: 1rem;
+    font-weight: 600;
+  }
 
-    .card-body {
-        padding: 1rem 1.5rem; 
-    }
+  .card-body {
+    padding: 1rem 1.5rem;
+  }
 }
 .page-item.active .page-link {
-    background: #5932EA;
-    border: 1px solid #5932EA;
-    color: #fff;
+  background: #5932ea;
+  border: 1px solid #5932ea;
+  color: #fff;
+}
+.page-item .page-link {
+  margin: 10px;
+  color: #000;
+}
+body {
+  background: #f4f7fa;
+}
+
+@media screen and (min-width: 360px) and (max-width: 768px) {
+  .main_card {
+    text-align: center;
   }
-  .page-item .page-link {
-    margin: 10px;
-    color: #000;
+  .inner_sec small {
+    margin-top: 20px !important;
+    display: block;
   }
+  .paginator {
+    flex-direction: column;
+  }
+  .paginator span {
+    font-size: 14px;
+  }
+  .wrap_table_data {
+    padding: 0px 0 !important;
+  }
+  .content {
+    margin-bottom: 90px;
+  }
+  ul.pagination {
+    justify-content: center;
+  }
+  .table_data table tbody td {
+    padding: 10px 12px !important;
+  }
+  .table_data table thead th {
+    padding: 10px 12px !important;
+  }
+  .sub-title h4 {
+    margin-bottom: 22px;
+    margin-top: 22px;
+  }
+}
+.paginator span {
+  margin: auto;
+  margin-left: 0;
+}

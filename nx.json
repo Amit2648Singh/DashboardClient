@@ -13,7 +13,7 @@
       "!{projectRoot}/src/test-setup.[jt]s",
       "!{projectRoot}/test-setup.[jt]s"
     ],
-    "sharedGlobals": []
+    "sharedGlobals": ["{workspaceRoot}/.github/workflows/dashboardclient.yml"]
   },
   "nxCloudId": "672f41b274b40c6c71309301",
   "targetDefaults": {
@@ -61,5 +61,5 @@
       "style": "css"
     }
   },
-  "defaultProject": "my-project"
+  "defaultProject": "customerdashboard"
 }

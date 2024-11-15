@@ -1,20 +1,32 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
+import { Response } from '../pages/customer/customer.component';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataService {
-  private apiUrl ="http://localhost:3000/api/users"
-  
-  constructor(private http:HttpClient) {
-  
-   }
-   getCoustomers(page:number,limit:number,selectedSortValue:string):Observable<any>{
-    return this.http.get<any>(`${this.apiUrl}?page=${page}&limit=${limit}&sort=${selectedSortValue}`)
+  private apiUrl = environment.apiUrl;
+
+  constructor(private http: HttpClient) {}
+  getCustomer(
+    page: number,
+    limit: number,
+    selectedSortValue: string
+  ): Observable<Response> {
+    return this.http.get<Response>(
+      `${this.apiUrl}?page=${page}&limit=${limit}&sort=${selectedSortValue}`
+    );
   }
-  searchCoustomers(name:String,page:number,limit:number,selectedSortValue:string):Observable<any>{
-    return this.http.get<any>( `${this.apiUrl}?search=${name}&page=${page}&limit=${limit}&sort=${selectedSortValue}`)
+  searchCustomer(
+    name: string,
+    page: number,
+    limit: number,
+    selectedSortValue: string
+  ): Observable<Response> {
+    return this.http.get<Response>(
+      `${this.apiUrl}?search=${name}&page=${page}&limit=${limit}&sort=${selectedSortValue}`
+    );
   }
 }
-

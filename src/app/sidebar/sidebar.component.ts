@@ -1,44 +1,51 @@
-import { Component, Output,EventEmitter, OnInit, HostListener } from '@angular/core';
+import {
+  Component,
+  Output,
+  EventEmitter,
+  OnInit,
+  HostListener,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { navbarData } from './nav-data';
-import { RouterLink,RouterLinkActive,RouterConfigOptions, Router } from '@angular/router';
-import { animate, keyframes, style, transition, trigger } from '@angular/animations';
+import { RouterLink, RouterLinkActive, Router } from '@angular/router';
+import {
+  animate,
+  keyframes,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 
-
-
-
-interface SideNavToggle{
-  screenWidth :number;
-  collapsed : boolean;
+interface SideNavToggle {
+  screenWidth: number;
+  collapsed: boolean;
 }
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule,RouterLink,RouterLinkActive],
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css',
   animations: [
-
     trigger('rotate', [
       transition(':enter', [
-        animate('1000ms', 
+        animate(
+          '1000ms',
           keyframes([
-            style({transform: 'rotate(0deg)', offset: '0'}),
-            style({transform: 'rotate(2turn)', offset: '1'})
+            style({ transform: 'rotate(0deg)', offset: '0' }),
+            style({ transform: 'rotate(2turn)', offset: '1' }),
           ])
-        )
-      ])
-    ])
-  ]
+        ),
+      ]),
+    ]),
+  ],
 })
-export class SidebarComponent implements  OnInit {
+export class SidebarComponent implements OnInit {
+  @Output() toggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
 
-
-  @Output() onToggleSideNav: EventEmitter<SideNavToggle> =new EventEmitter();
-
-  collapsed =false;
-  screenWidth = 0
-  navData=navbarData ;
+  collapsed = false;
+  screenWidth = 0;
+  navData = navbarData;
 
   constructor(private router: Router) {}
 
@@ -46,27 +53,32 @@ export class SidebarComponent implements  OnInit {
     return this.router.url === route;
   }
   @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
+  onResize() {
     this.screenWidth = window.innerWidth;
-    if(this.screenWidth <= 768 ) {
+    if (this.screenWidth <= 768) {
       this.collapsed = false;
-      this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
+      this.toggleSideNav.emit({
+        collapsed: this.collapsed,
+        screenWidth: this.screenWidth,
+      });
     }
   }
   ngOnInit(): void {
-      this.screenWidth=window.innerWidth
+    this.screenWidth = window.innerWidth;
   }
-  toggleCollapse() :void {
-    this.collapsed=!this.collapsed;
-    this.onToggleSideNav.emit({collapsed:this.collapsed,screenWidth :this.screenWidth})
+  toggleCollapse(): void {
+    this.collapsed = !this.collapsed;
+    this.toggleSideNav.emit({
+      collapsed: this.collapsed,
+      screenWidth: this.screenWidth,
+    });
+  }
 
-  }
-  toggleSubMenu(item: any) {
-    item.expanded = !item.expanded;
-  }
-  closeSidenav():void {
-      this.collapsed = false
-      this.onToggleSideNav.emit({collapsed:this.collapsed,screenWidth :this.screenWidth})
-
+  closeSidenav(): void {
+    this.collapsed = false;
+    this.toggleSideNav.emit({
+      collapsed: this.collapsed,
+      screenWidth: this.screenWidth,
+    });
   }
 }

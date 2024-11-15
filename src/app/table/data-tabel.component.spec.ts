@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DatatableComponent } from './data-tabel.component';
-
 describe('DatatableComponent', () => {
   let component: DatatableComponent;
   let fixture: ComponentFixture<DatatableComponent>;
@@ -14,7 +13,6 @@ describe('DatatableComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
   it('should create', () => {
     expect(component).toBeTruthy();
   });
