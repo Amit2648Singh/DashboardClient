@@ -1,13 +1,11 @@
 <div class="row wrap_table_data">
   <div class="col-sm-12">
-
     <div class="row">
       <div class="col-sm-6">
-
-          <div class="sub-title">
+        <div class="sub-title">
           <h4>All Customers</h4>
           <p>Active Members</p>
-          </div>
+        </div>
       </div>
       <div class="col-sm-6">
         <div class="row">
@@ -15,81 +13,92 @@
             <div class="input-group outline mb-3">
               <div class="input-group-prepend">
                 <button class="btn" type="button">
-                  <img src="../../assets/search 1.png">
+                  <img alt="search" src="../../assets/search 1.png" />
                 </button>
               </div>
-              <input type="text"
-               class="form-control"
+              <input
+                type="text"
+                class="form-control"
                 placeholder="Search"
-                 aria-label="" 
-                 aria-describedby="basic-addon1"
-                 (input)="onSearch($event)"
-                 >
+                aria-label=""
+                aria-describedby="basic-addon1"
+                (input)="onSearch($event)"
+              />
             </div>
           </div>
           <div class="col-sm-6 dropdown_select">
             <div class="wrap_label">
-              <label>Short by</label>
-              <select class="form-select form-select-lg mb-3" [(ngModel)]="paginationData.selectedSortValue" (ngModelChange)="onSort($event)" aria-label=".form-select-lg example">
+              <p>Short by</p>
+              <select
+                class="form-select form-select-lg mb-3"
+                [(ngModel)]="paginationData.selectedSortValue"
+                (ngModelChange)="onSort($event)"
+                aria-label=".form-select-lg example"
+              >
                 <option selected disabled>Select one</option>
                 <option [ngValue]="'acc'">Newest</option>
                 <option [ngValue]="'desc'">Oldest</option>
               </select>
             </div>
-           
           </div>
         </div>
       </div>
     </div>
-   
-    
-    
+
     <div class="table_data">
       <div class="table-row header">
-
-       <table class="w-100">
-        <thead>
-          <tr>
-            <th (click)="sortTable('name')">Customer Name</th>
-            <th (click)="sortTable('company')">Company</th>
-            <th>Phone Number</th>
-            <th>Email</th>
-            <th>Country</th>
-            <th>Status</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let customer of filteredCustomers()">
-            <td>{{ customer.name }}</td>
-            <td>{{ customer.company }}</td>
-            <td>{{ customer.phone }}</td>
-            <td>{{ customer.email }}</td>
-            <td>{{ customer.country }}</td>
-            <td>
-              <div class="status_btn">
-                <button class="btn"
-                [ngClass]="{
-                  'btn-active': customer.status.toLowerCase() === 'active',
-                  'btn-inactive': customer.status.toLowerCase() === 'inactive'
-                }">{{ customer.status }}</button>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-       </table>
+        <table class="w-100">
+          <thead>
+            <tr>
+              <th (click)="sortTable('name')">Customer Name</th>
+              <th (click)="sortTable('company')">Company</th>
+              <th>Phone Number</th>
+              <th>Email</th>
+              <th>Country</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let customer of filteredCustomers()">
+              <td>{{ customer.name }}</td>
+              <td>{{ customer.company }}</td>
+              <td>{{ customer.phone }}</td>
+              <td>{{ customer.email }}</td>
+              <td>{{ customer.country }}</td>
+              <td>
+                <div class="status_btn">
+                  <button
+                    class="btn"
+                    [ngClass]="{
+                      'btn-active': customer.status.toLowerCase() === 'active',
+                      'btn-inactive':
+                        customer.status.toLowerCase() === 'inactive'
+                    }"
+                  >
+                    {{ customer.status }}
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      
     </div>
-    
-    <div class="d-flex paginator p-2">
-      <ngb-pagination
-        [collectionSize]="paginationData.collectionSize"
-        [(page)]="paginationData.page"
-        [pageSize]="paginationData.pageSize"
-        (pageChange)="onPageChange($event)"
-      >
-      </ngb-pagination>
-    </div>
+  </div>
+  <div class="d-flex paginator p-2">
+    <span
+      >Showing data {{ additionalData.itemFrom }} to
+      {{ additionalData.itemTo }} of
+      {{ additionalData.totalUsers }} entries</span
+    >
+
+    <ngb-pagination
+      [collectionSize]="paginationData.collectionSize"
+      [(page)]="paginationData.page"
+      [pageSize]="paginationData.pageSize"
+      (pageChange)="onPageChange($event)"
+    >
+    </ngb-pagination>
   </div>
 </div>

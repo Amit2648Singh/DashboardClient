@@ -108,7 +108,7 @@
 }
 
 .image_sec {
-  background: #EFFFF6;
+  background: #effff6;
   padding: 20px;
   text-align: center;
   border-radius: 100%;
@@ -157,15 +157,15 @@
   }
 
   .table {
-    grid-template-columns: repeat(4, 1fr); /* Adjust grid for tablet view */
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .content {
-    padding: 30px; /* Slightly more padding for better spacing on tablets */
+    padding: 30px;
   }
 
   .stat-card {
-    padding: 15px; /* Slightly less padding to fit more content */
+    padding: 15px;
   }
 }
 
@@ -230,7 +230,7 @@
   }
 
   .table {
-    grid-template-columns: repeat(8, 1fr); /* Increase columns for extra large screens */
+    grid-template-columns: repeat(8, 1fr);
   }
 
   .stat-card h3 {

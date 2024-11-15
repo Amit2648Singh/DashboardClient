@@ -1,5 +1,5 @@
 {
-  "name": "my-project",
+  "name": "customerdashboard",
   "$schema": "node_modules/nx/schemas/project-schema.json",
   "includedScripts": [],
   "projectType": "application",
@@ -13,9 +13,14 @@
         "{options.outputPath}"
       ],
       "options": {
-        "outputPath": "dist/my-project",
+        "outputPath": "dist/customerdashboard",
         "index": "./src/index.html",
         "browser": "./src/main.ts",
+        "optimization": {
+          "fonts": {
+            "inline": false
+          }
+        },
         "polyfills": [
           "zone.js",
           "@angular/localize/init"
@@ -32,7 +37,9 @@
           "node_modules/bootstrap/dist/css/bootstrap.min.css",
           "./src/styles.css"
         ],
-        "scripts": []
+        "scripts": [
+          "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+        ]
       },
       "configurations": {
         "production": {
@@ -53,7 +60,13 @@
         "development": {
           "optimization": false,
           "extractLicenses": false,
-          "sourceMap": true
+          "sourceMap": true,
+          "fileReplacements": [
+            {
+              "replace": "src/environments/environment.ts",
+              "with": "src/environments/environment.development.ts"
+            }
+          ]
         }
       },
       "defaultConfiguration": "production"
@@ -62,10 +75,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "my-project:build:production"
+          "buildTarget": "customerdashboard:build:production"
         },
         "development": {
-          "buildTarget": "my-project:build:development"
+          "buildTarget": "customerdashboard:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -73,7 +86,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "my-project:build"
+        "buildTarget": "customerdashboard:build"
       }
     },
     "lint": {
@@ -96,8 +109,8 @@
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "my-project:build",
-        "staticFilePath": "dist/my-project/browser",
+        "buildTarget": "customerdashboard:build",
+        "staticFilePath": "dist/customerdashboard/browser",
         "spa": true
       }
     }

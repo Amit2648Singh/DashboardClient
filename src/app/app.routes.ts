@@ -1,11 +1,11 @@
 import { Route } from '@angular/router';
-import { CoustomerComponent } from './pages/dashboard/coustomer.component';
-import { ProductComponent } from './pages/product/product.component';
+import { CustomerComponent } from './pages/customer/customer.component';
 import { PagesComponent } from './pages/page/pages.component';
-
+import { NotFoundComponent } from './pages/NotFound/notFound.component';
 export const appRoutes: Route[] = [
-    {path: 'coustomer' , component:CoustomerComponent},
-    {path: ':page' , component:PagesComponent},
-    { path: '404', component: ProductComponent }, // 404 Page
-  { path: '**', redirectTo: '/404' }             
+  { path: '', redirectTo: '/customer', pathMatch: 'full' },
+  { path: 'customer', component: CustomerComponent },
+  { path: '404', component: NotFoundComponent },
+  { path: ':page', component: PagesComponent },
+  { path: '**', redirectTo: '/404' },
 ];
