@@ -1,81 +1,65 @@
-# MyProject
+# Customer Dashboard
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+This project is a Customer Dashboard application built using Angular within an NX workspace. It follows a monolithic architecture approach and demonstrates seamless integration between frontend and backend systems.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+## Features
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/angular-standalone-tutorial?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+### Customer Page:
+- Dynamically fetches customer data using Node.js and Express.js APIs.
+- Implements pagination, search, and sorting for enhanced data navigation:
+  - **Pagination and Sorting by Date:** Managed through backend APIs for optimized performance.
+  - **Sorting by Name and Country:** Implemented on the frontend, applicable to the dataset of the current page.
+- APIs are designed to deliver only the necessary data for the requested page, enhancing performance.
 
-## Finish your remote caching setup
+### Dynamic Pages:
+- Features a generic setup for dynamic pages to accommodate various content requirements for non-customer-specific pages.
+- Simplifies the addition of new pages without significant code duplication.
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/GfQxLKIyLt)
+### 404 Page Routing:
+- Custom routing to handle 404 - Page Not Found scenarios.
 
-## Run tasks
+### Service Layer:
+- A well-organized service layer for managing API calls with two distinct functions:
+  - **Fetch Data:** Handles pagination and sorting requests.
+  - **Search Data:** Focuses on search functionality.
+- Promotes separation of concerns for improved readability and maintainability.
+**Tech Stack**
 
-To run the dev server for your app, use:
+**Frontend:**
+- Angular (with NX Workspace)
+- TypeScript
 
-```sh
-npx nx serve customerdashboard
-```
+**Backend:**
+- Node.js
+- Express.js
 
-To create a production bundle:
+**Other Tools:**
+- HTML5
+- CSS3
+- RxJS
 
-```sh
-npx nx build customerdashboard
-```
+**Installation Instructions**
 
-To see all available targets to run for a project, run:
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd customer-dashboard
+   ```
 
-```sh
-npx nx show project customerdashboard
-```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+3. Start the application:
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+   **Backend:**
+ - Backend Repository: https://github.com/Amit2648Singh/DashboardServer.git
+ - My Backend is hosted at https://dashboardclient-2zci.onrender.com. Use this BASE_URL: "https://dashboardclient-2zci.onrender.com/api/users" or clone the repo and use localhost for API calls.
 
-## Add new projects
+   **Frontend:**
+   ```bash
+   nx serve
+   ```
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/angular:app demo
-```
-
-To generate a new library, use:
-
-```sh
-npx nx g @nx/angular:lib mylib
-```
-
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
-
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/angular-standalone-tutorial?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+5. Access the application by opening http://localhost:4200 in your browser also hosted on vercel https://dashboard-client-drab.vercel.app/customer.

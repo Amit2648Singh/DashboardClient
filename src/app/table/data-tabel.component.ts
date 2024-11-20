@@ -22,6 +22,7 @@ export class DatatableComponent implements OnChanges {
     itemFrom: 0,
     itemTo: 0,
     totalPages: 0,
+    activeCustomer: 0,
     users: [],
   };
   @Input() paginationData: {
