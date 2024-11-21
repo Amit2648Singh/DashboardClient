@@ -19,6 +19,7 @@ export interface Response {
   itemFrom: number;
   itemTo: number;
   totalPages: number;
+  activeCustomer: number;
   users: Customer[];
 }
 
@@ -37,6 +38,7 @@ export class CustomerComponent implements OnInit {
     itemFrom: 0,
     itemTo: 0,
     totalPages: 0,
+    activeCustomer: 0,
     users: [],
   };
   paginationData = {

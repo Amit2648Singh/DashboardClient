@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://dashboardclient-2zci.onrender.com/api/users',
+  apiUrl: 'http://localhost:3000/api/users',
 };

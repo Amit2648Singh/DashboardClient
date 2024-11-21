@@ -17,13 +17,12 @@ export class PagesComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.page = params['page']; // Get dynamic route parameter
+      this.page = params['page'];
       const isValidRoute = navbarData.some(
         (navItem) => navItem.routeLink === this.page
       );
 
       if (!isValidRoute) {
-        // Redirect to 404 if invalid route
         this.router.navigate(['/404']);
       }
     });
