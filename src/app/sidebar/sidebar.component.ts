@@ -26,19 +26,7 @@ interface SideNavToggle {
   imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css',
-  animations: [
-    trigger('rotate', [
-      transition(':enter', [
-        animate(
-          '1000ms',
-          keyframes([
-            style({ transform: 'rotate(0deg)', offset: '0' }),
-            style({ transform: 'rotate(2turn)', offset: '1' }),
-          ])
-        ),
-      ]),
-    ]),
-  ],
+  animations: [],
 })
 export class SidebarComponent implements OnInit {
   @Output() toggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();

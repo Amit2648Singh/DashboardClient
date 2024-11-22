@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DatatableComponent } from './data-tabel.component';
+import '@angular/localize/init';
+
 describe('DatatableComponent', () => {
   let component: DatatableComponent;
   let fixture: ComponentFixture<DatatableComponent>;

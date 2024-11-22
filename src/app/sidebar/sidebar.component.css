@@ -6,6 +6,7 @@
   width: 5rem;
   height: 100vh;
   box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
+  transition: width 700ms ease-in-out;
 }
 .logo-container {
   display: flex;
@@ -100,7 +101,6 @@
   background-color: #5932ea;
   color: #fff;
   justify-content: center;
-  /* filter: invert(100%) brightness(200%); */
 }
 .active span.sidenav-link-text {
   color: #fff;
